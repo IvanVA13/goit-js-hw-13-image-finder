@@ -23,6 +23,7 @@ const observerHandler = entries => {
 const observerElement = document.createElement('div');  
 const observer = new IntersectionObserver(observerHandler, observerOptions);
 observer.observe(observerElement)
+galleryRef.insertAdjacentElement('afterend', observerElement)
 inputRef.insertAdjacentHTML('afterbegin', formMkp())
 
 inputRef.addEventListener('input', debounce(onInput, 500));
@@ -33,7 +34,6 @@ function onInput(e) {
         notification.error({ text: notification.text.error });
         addStyleInputBorder(e.target, "invalid", "valid")
     } else {
-        galleryRef.insertAdjacentElement('afterend', observerElement)
         addStyleInputBorder(e.target, "valid", "invalid")
         btnRef.innerHTML = btnListMkp()
         fetch.options.page = 1
