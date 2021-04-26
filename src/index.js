@@ -35,6 +35,7 @@ function onInput(e) {
         notification.error({ text: notification.text.error });
         addStyleInputBorder(e.target, "invalid", "valid")
     } else {
+        galleryRef.innerHTML = ''
         addStyleInputBorder(e.target, "valid", "invalid")
         btnRef.innerHTML = btnListMkp()
         fetch.options.page = 1
