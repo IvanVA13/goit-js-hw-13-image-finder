@@ -6,7 +6,6 @@ import btnListMkp from './templates/btn-list.hbs'
 import imagesCardsMkp from './templates/images.hbs'
 import fetch from './js/apiService'
 import debounce from 'lodash.debounce';
-import * as basicLightbox from 'basiclightbox'
 
 const inputRef = document.querySelector("#form-container")
 const btnRef = document.querySelector("#btn-list")
@@ -17,7 +16,7 @@ const observerOptions = {
 const observerHandler = entries => {
       if (entries[0].isIntersecting) {
           incrementPage()
-          fetch.fetchPictures(fetch.options.query).then(data => infinityRender(data))
+          fetch.fetchPictures().then(data => infinityRender(data))
       }
     };
 const observerElement = document.createElement('div');  
@@ -45,7 +44,7 @@ function onInput(e) {
 }
 
 function getHitsByQuery() {
-    fetch.fetchPictures(fetch.options.query).then(data => {
+    fetch.fetchPictures().then(data => {
         if (data.totalHits !== 0) {
             notification.success({ text: notification.text.success })
             return renderAfterQuery(data)
