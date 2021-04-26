@@ -5,6 +5,7 @@ import formMkp from './templates/form.hbs'
 import btnListMkp from './templates/btn-list.hbs'
 import imagesCardsMkp from './templates/images.hbs'
 import fetch from './js/apiService'
+import createModal from './js/modal'
 import debounce from 'lodash.debounce';
 
 const inputRef = document.querySelector("#form-container")
@@ -27,6 +28,7 @@ inputRef.insertAdjacentHTML('afterbegin', formMkp())
 
 inputRef.addEventListener('input', debounce(onInput, 500));
 btnRef.addEventListener('click', addNewPage);
+galleryRef.addEventListener('click', showBigImage);
 
 function onInput(e) {
     if (!isAlpha(e.target.value, 'en-US', { ignore: " -" })) {
@@ -93,4 +95,9 @@ function renderAfterQuery(data) {
 
 function infinityRender(data) {
     galleryRef.insertAdjacentHTML('beforeend', imagesCardsMkp(data.hits))
+}
+
+
+function showBigImage(e) {
+    createModal(e.target.dataset.src, e.target.alt)
 }
