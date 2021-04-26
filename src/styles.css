@@ -116,6 +116,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 1270px;
+  margin: 0 auto;
   flex-wrap: wrap;
   padding-left: 15px;
   padding-right: 15px;
