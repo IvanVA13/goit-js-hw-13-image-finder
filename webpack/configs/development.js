@@ -21,6 +21,12 @@ module.exports = env => ({
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'async.html',
+      template: './async.html',
+      chunks: ['async']
     }),
   ],
   devServer: {

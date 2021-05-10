@@ -1,3 +1,8 @@
+:root {
+  --width-container: clamp(300px, 100%, 1300px);
+  --width-card: clamp(300px, 50%, 393px);
+}
+
 *,
 *::before,
 *::after {
@@ -115,7 +120,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1270px;
+  width: 100%;
   margin: 0 auto;
   flex-wrap: wrap;
   padding-left: 15px;
@@ -125,7 +130,7 @@ body {
 .photo-card {
   display: flex;
   flex-wrap: wrap;
-  width: calc(1270px / 3 - 60px);
+  width: calc((100% - 60px) / 3);
 
   border: 1px solid #a9a7a7;
   border-radius: 4px;
